@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System.Net;
 using System.Text;
+using System.Web;
 
 namespace AveryWebClientExample
 {
@@ -29,7 +30,7 @@ namespace AveryWebClientExample
             request.Headers.Add("Content-Type:x-www-form-urlencoded;charset=UTF-8");
             request.Headers.Add("Authorization:Zoho-authtoken <token>");
             //Encode
-            string stringData = "JSONString=\"" + requestBody + "\"";
+            string stringData = "JSONString=\"" + HttpUtility.UrlEncode(requestBody) + "\"";
             var data = Encoding.UTF8.GetBytes(stringData);
             request.ContentLength = data.Length;
             using (Stream dataStream = request.GetRequestStream())
