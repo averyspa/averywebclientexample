@@ -23,7 +23,7 @@ namespace AveryWebClientExample
 
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             // Create a request using a URL that can receive a post. 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(System.Environment.GetEnvironmentVariable("https://www.corportateamerica.com/api/...."));
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(System.Environment.GetEnvironmentVariable("https://<baseurl>/api/v3/items?organization_id=<id>"));
             // Set the Method property of the request to POST.
             request.Method = "POST";
             // Create POST data and convert it to a byte array.
